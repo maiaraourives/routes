@@ -4,10 +4,10 @@ class CsAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CsAppBar({
     required this.title,
     this.preferredSize = const Size.fromHeight(65),
+    this.roundedRectangleBorder,
     this.elevation = 3,
     this.actions,
     this.leading,
-    this.automaticallyImplyLeading = true,
     super.key,
   });
 
@@ -17,27 +17,26 @@ class CsAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final double elevation;
-  final bool? automaticallyImplyLeading;
+  final RoundedRectangleBorder? roundedRectangleBorder;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
     return AppBar(
-      backgroundColor: theme.primaryColor,
-      elevation: 0.0,
-      toolbarHeight: 70,
-      automaticallyImplyLeading: automaticallyImplyLeading!,
+      elevation: elevation,
+      backgroundColor: theme.appBarTheme.backgroundColor,
+      toolbarHeight: 65,
+      actionsIconTheme: theme.appBarTheme.iconTheme,
+      shape: roundedRectangleBorder,
+      scrolledUnderElevation: null,
+      centerTitle: true,
       title: FittedBox(
         child: Text(
           title,
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      centerTitle: true,
       actions: actions,
       leading: leading,
     );

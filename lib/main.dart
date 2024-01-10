@@ -9,9 +9,9 @@ import 'configs/routes/local_routes.dart';
 import 'configs/themes/theme_app.dart';
 import 'router_app.dart';
 import 'services/navigation_service.dart';
+import 'services/route_history_provider.dart';
 import 'services/service_locator.dart';
 import 'utils/routes.dart';
-import 'views/home/home_view.dart';
 import 'widgets/no_glow_effect.dart';
 
 void main() async {

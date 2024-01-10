@@ -19,9 +19,7 @@ class RouteObserverr extends NavigatorObserver {
       routeName;
     }
 
-    routeHistory.add('Rota empurrada: $routeName, ${DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now())}');
-
-    print('Rota empurrada: $routeName, acessado ${DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now())}');
+    routeHistory.add('Rota empurrada: $routeName,acessado  ${DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now())}');
   }
 
   @override
@@ -38,8 +36,6 @@ class RouteObserverr extends NavigatorObserver {
     }
 
     routeHistory.add('Rota retirada: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
-
-    print('Rota retirada: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
   }
 
   @override
@@ -56,8 +52,6 @@ class RouteObserverr extends NavigatorObserver {
     }
 
     routeHistory.add('Rota substituída: $newRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
-
-    print('Rota substituída: $newRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
   }
 
   @override
@@ -74,7 +68,5 @@ class RouteObserverr extends NavigatorObserver {
     }
 
     routeHistory.add('Rota removida: $removeRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
-
-    print('Rota removida: $removeRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
   }
 }
