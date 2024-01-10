@@ -9,7 +9,7 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
-    String routeName = route.settings.name ?? "Unknown Route";
+    String routeName = route.settings.name ?? 'Rota desconhecida';
 
     if (routeName == '/home') {
       routeName = 'Tela inicial';
@@ -27,7 +27,7 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    String routeName = route.settings.name ?? "Unknown Route";
+    String routeName = route.settings.name ?? 'Rota desconhecida';
 
     if (routeName == '/home') {
       routeName = 'Tela inicial';
@@ -45,7 +45,7 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
     super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
-    String newRouteName = newRoute?.settings.name ?? "Unknown Route";
+    String newRouteName = newRoute?.settings.name ?? 'Rota desconhecida';
 
     if (newRouteName == '/home') {
       newRouteName = 'Tela inicial';
@@ -63,7 +63,7 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didRemove(route, previousRoute);
-    String removeRouteName = route.settings.name ?? "Unknown Route";
+    String removeRouteName = route.settings.name ?? 'Rota desconhecida';
 
     if (removeRouteName == '/home') {
       removeRouteName = 'Tela inicial';

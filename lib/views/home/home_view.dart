@@ -36,3 +36,17 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
+
+class RouteHistoryProvider extends ChangeNotifier {
+  List<String> _routeHistory = [];
+
+  List<String> get routeHistory => _routeHistory.toList();
+
+  void addToHistory(String route) {
+    _routeHistory.add(route);
+    notifyListeners();
+  }
+}
+
+

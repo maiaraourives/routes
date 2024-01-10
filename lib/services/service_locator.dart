@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import '../utils/routes.dart';
 import 'navigation_service.dart';
 
 final getIt = GetIt.instance;
@@ -8,6 +9,12 @@ final getIt = GetIt.instance;
 setupServiceLocator({bool firstTime = true}) {
   _registerSingleton<NavigationService>(
     instance: NavigationService(),
+    allowAgain: false,
+    firstTime: firstTime,
+  );
+  
+  _registerSingleton<RouteObserverr>(
+    instance: RouteObserverr(),
     allowAgain: false,
     firstTime: firstTime,
   );
@@ -26,4 +33,3 @@ void _registerSingleton<T extends Object>({
 
   getIt.registerSingleton<T>(instance);
 }
-
