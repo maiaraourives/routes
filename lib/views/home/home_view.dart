@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../services/service_locator.dart';
+import '../../stores/list_contatos.dart';
+import '../../widgets/cards/card_usuario.dart';
 import '../../widgets/cs_app_bar.dart';
 import '../../widgets/menu/menu.dart';
 
@@ -10,16 +13,25 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  Listas lista = getIt<Listas>();
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      drawer: Menu(),
-      appBar: CsAppBar(
+    return Scaffold(
+      drawer: const Menu(),
+      appBar: const CsAppBar(
         title: 'Home',
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
+      body: ListView.builder(
+        itemCount: lista.listaContatoss.length,
+        itemBuilder: (context, index) {
+          return CardUsuario(
+            key: ValueKey(lista.listaContatoss[index].nome),
+            nome: lista.listaContatoss[index].nome,
+            numero: lista.listaContatoss[index].numero,
+            perfil: lista.listaContatoss[index].perfil,
+          );
+        },
       ),
     );
   }

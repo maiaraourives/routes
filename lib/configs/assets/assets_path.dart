@@ -1,24 +1,24 @@
-// // ignore_for_file: constant_identifier_names
+// ignore_for_file: constant_identifier_names
 
-// class AssetsPath {
-//   //Assets icons
-//   static const MACA = 'assets/icons/maca.svg';
+class AssetsPath {
+  //Assets avatar
+  static const CAMILA = 'assets/imagens/camila.png';
 
-//   static const BANANA = 'assets/icons/banana.svg';
+  static const CARLOS = 'assets/imagens/carlos.png';
 
-//   static const PESSEGO = 'assets/icons/pessego.svg';
+  static const CARMELINDA = 'assets/imagens/carmelinda.png';
 
-//   static const UVA = 'assets/icons/uva.svg';
+  static const GABRIEL = 'assets/imagens/gabriel.png';
 
-//   static const ABACAXI = 'assets/icons/abacaxi.svg';
+  static const LEONA = 'assets/imagens/leona.png';
 
-//   static const MELANCIA = 'assets/icons/melancia.svg';
+  static const LUANA = 'assets/imagens/luana.png';
 
-//   static const MORANGO = 'assets/icons/morango.svg';
+  static const MICAELA = 'assets/imagens/micaela.png';
 
-//   static const LIMAO = 'assets/icons/limao.svg';
+  static const PEDRO = 'assets/imagens/pedro.png';
 
-//   static const PERA = 'assets/icons/pera.svg';
+  static const PEDRO_WILL = 'assets/imagens/pedro_will.png';
 
-//   static const LARANJA = 'assets/icons/laranja.svg';
-// }
+  static const TOMAS = 'assets/imagens/tomas.png';
+}

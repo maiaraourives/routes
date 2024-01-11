@@ -33,8 +33,49 @@ class _MenuState extends State<Menu> {
             ),
             child: Padding(
               padding: const EdgeInsets.all(10).copyWith(top: 35),
-              child: const Row(
-                children: [],
+              child: Row(
+                children: [
+                  // Foto do usuário
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.transparent,
+                    child: ClipOval(
+                      child: Image.network(
+                        'https://cdn-icons-png.flaticon.com/512/1/1247.png',
+                        fit: BoxFit.fill,
+                        width: double.infinity,
+                        height: double.infinity,
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 15),
+
+                  const Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Luan Di Paulo',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 17,
+                          ),
+                        ),
+                        SizedBox(height: 2),
+                        Text(
+                          '(55) 55 9 9845-9712',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -68,7 +109,7 @@ class _MenuState extends State<Menu> {
               color: Colors.blueGrey,
             ),
             title: const Text(
-              'Historico',
+              'Histórico',
               style: TextStyle(
                 color: Colors.blueGrey,
                 fontWeight: FontWeight.w400,

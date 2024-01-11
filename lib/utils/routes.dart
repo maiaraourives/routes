@@ -5,11 +5,16 @@ import 'package:intl/intl.dart';
 
 class RouteObserverr extends NavigatorObserver {
   List<String> routeHistory = [];
+  String routeName = '';
+
+  void removeRoute(String routeName) {
+    routeHistory.removeWhere((route) => route.contains(routeName));
+  }
 
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
-    String routeName = route.settings.name ?? 'Rota desconhecida';
+    routeName = route.settings.name ?? 'Rota desconhecida';
 
     if (routeName == '/home') {
       routeName = 'Tela inicial';
@@ -25,7 +30,7 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didPop(route, previousRoute);
-    String routeName = route.settings.name ?? 'Rota desconhecida';
+    routeName = route.settings.name ?? 'Rota desconhecida';
 
     if (routeName == '/home') {
       routeName = 'Tela inicial';
@@ -41,32 +46,32 @@ class RouteObserverr extends NavigatorObserver {
   @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
     super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
-    String newRouteName = newRoute?.settings.name ?? 'Rota desconhecida';
+    routeName = newRoute?.settings.name ?? 'Rota desconhecida';
 
-    if (newRouteName == '/home') {
-      newRouteName = 'Tela inicial';
-    } else if (newRouteName == '/historico') {
-      newRouteName = 'Histórico de rotas';
+    if (routeName == '/home') {
+      routeName = 'Tela inicial';
+    } else if (routeName == '/historico') {
+      routeName = 'Histórico de rotas';
     } else {
-      newRouteName;
+      routeName;
     }
 
-    routeHistory.add('Rota substituída: $newRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
+    routeHistory.add('Rota substituída: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
   }
 
   @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
     super.didRemove(route, previousRoute);
-    String removeRouteName = route.settings.name ?? 'Rota desconhecida';
+    routeName = route.settings.name ?? 'Rota desconhecida';
 
-    if (removeRouteName == '/home') {
-      removeRouteName = 'Tela inicial';
-    } else if (removeRouteName == '/historico') {
-      removeRouteName = 'Histórico de rotas';
+    if (routeName == '/home') {
+      routeName = 'Tela inicial';
+    } else if (routeName == '/historico') {
+      routeName = 'Histórico de rotas';
     } else {
-      removeRouteName;
+      routeName;
     }
 
-    routeHistory.add('Rota removida: $removeRouteName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
+    routeHistory.add('Rota removida: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
   }
 }

@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 
+import '../stores/list_contatos.dart';
 import '../utils/routes.dart';
 import 'navigation_service.dart';
 
@@ -15,6 +16,12 @@ setupServiceLocator({bool firstTime = true}) {
   
   _registerSingleton<RouteObserverr>(
     instance: RouteObserverr(),
+    allowAgain: false,
+    firstTime: firstTime,
+  );
+  
+  _registerSingleton<Listas>(
+    instance: Listas(),
     allowAgain: false,
     firstTime: firstTime,
   );
