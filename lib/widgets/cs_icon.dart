@@ -12,9 +12,8 @@ class CsIcon extends StatelessWidget {
     required this.svgPath,
     this.size = 30,
     this.color,
-    Key? key,
-  })  : icon = null,
-        super(key: key);
+    super.key,
+  })  : icon = null;
 
   final String? svgPath;
   final IconData? icon;

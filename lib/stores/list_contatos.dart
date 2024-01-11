@@ -5,58 +5,128 @@ import 'package:routes/configs/assets/assets_path.dart';
 import '../models/contatos_model.dart';
 
 class Listas {
-  List<ContatosModel> _listaContatos = [
-    ContatosModel(
+  List<DadosModel> _listaContatos = [
+    DadosModel(
       nome: 'Camila Lemos',
       numero: '(55) 55 9 9061-7342',
       perfil: AssetsPath.CAMILA,
+      fruta: 'Kiwi',
+      time: 'Internacional',
+      selecao: 'Seleção Italiana',
+      filho: 'Não',
+      mora: 'Sozinha',
+      viagem: 'Roma - Itália',
+      irmaos: '1',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Carlos Mateus',
-      numero: '(55) 55 9 9875-5214',
+      numero: '(55) 22 9 9875-5214',
       perfil: AssetsPath.CARLOS,
+      fruta: 'Uva',
+      time: 'Barcelona',
+      selecao: 'Seleção Brasileira',
+      filho: 'Sim',
+      mora: 'Esposa e filhos',
+      viagem: 'São Paulo - SP',
+      irmaos: '6',
     ),
-    ContatosModel(
-      nome: 'Carmelinda Patos',
-      numero: '(55) 55 9 9957-3175',
+    DadosModel(
+      nome: 'Carmelinda Alvez',
+      numero: '(55) 11 9 9957-3175',
       perfil: AssetsPath.CARMELINDA,
+      fruta: 'Manga',
+      time: 'Tigres',
+      selecao: 'Seleção Mexicana',
+      filho: 'Não',
+      mora: 'Pais',
+      viagem: 'Cancún - México',
+      irmaos: '2',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Gabriel Matos',
       numero: '(55) 55 9 9725-7154',
       perfil: AssetsPath.GABRIEL,
+      fruta: 'Melancia',
+      time: 'Internacional',
+      selecao: 'Seleção Argetina',
+      filho: 'Não',
+      mora: 'Esposo',
+      viagem: 'Posadas - Argentina',
+      irmaos: '2',
     ),
-    ContatosModel(
-      nome: 'Luana Maria',
+    DadosModel(
+      nome: 'Luana Maria Matos',
       numero: '(55) 55 9 9317-6596',
       perfil: AssetsPath.LUANA,
+      fruta: 'Kiwi',
+      time: 'Internacional',
+      selecao: 'Seleção Uruguaia',
+      filho: 'Não',
+      mora: 'Sozinha',
+      viagem: 'Posadas - Argentina',
+      irmaos: '3',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Leona de Paula',
       numero: '(55) 55 9 9125-3642',
       perfil: AssetsPath.LEONA,
+      fruta: 'Kiwi',
+      time: 'Internacional',
+      selecao: 'Seleção Uruguaia',
+      filho: 'Não',
+      mora: 'Sozinha',
+      viagem: 'São Paulo - SP',
+      irmaos: '2',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Micaela Franco',
-      numero: '(55) 55 9 9510-3014',
+      numero: '(55) 42 9 9510-3014',
       perfil: AssetsPath.MICAELA,
+      fruta: 'Maça',
+      time: 'Internacional',
+      selecao: 'Seleção Argentina',
+      filho: 'Não',
+      mora: 'Noivo',
+      viagem: 'São Paulo - SP',
+      irmaos: '0',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Pedro França',
-      numero: '(55) 55 9 9201-7816',
+      numero: '(55) 11 9 9201-7816',
       perfil: AssetsPath.PEDRO,
+      fruta: 'Melancia',
+      time: 'Barcelona',
+      selecao: 'Seleção Brasileira',
+      filho: 'Sim',
+      mora: 'Esposa',
+      viagem: 'Santa Cruz - RS',
+      irmaos: '2',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Paulo Will',
-      numero: '(55) 55 9 9636-3636',
+      numero: '(55) 45 9 9636-3636',
       perfil: AssetsPath.PEDRO_WILL,
+      fruta: 'Pera',
+      time: 'Inter de Milão',
+      selecao: 'Seleção Italiana',
+      filho: 'Não',
+      mora: 'Esposa',
+      viagem: 'Milão - Itália',
+      irmaos: '4',
     ),
-    ContatosModel(
+    DadosModel(
       nome: 'Tomás Carter',
-      numero: '(55) 55 9 9487-0241',
+      numero: '(55) 37 9 9487-0241',
       perfil: AssetsPath.TOMAS,
+      fruta: 'Maça',
+      time: 'Barcelona',
+      selecao: 'Seleção Brasileira',
+      filho: 'Sim',
+      mora: 'Esposa e filhos',
+      viagem: 'Angra dos Reis - SP',
+      irmaos: '0',
     ),
   ];
 
-  List<ContatosModel> get listaContatos => _listaContatos;
+  List<DadosModel> get listaContatos => _listaContatos;
 }

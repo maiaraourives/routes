@@ -10,7 +10,7 @@ import '../../widgets/cs_icon_button.dart';
 import '../../widgets/cs_text_form_field.dart';
 
 class HistoricoView extends StatefulWidget {
-  const HistoricoView({Key? key}) : super(key: key);
+  const HistoricoView({super.key});
 
   @override
   State<HistoricoView> createState() => _HistoricoViewState();

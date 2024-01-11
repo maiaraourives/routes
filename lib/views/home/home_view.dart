@@ -17,8 +17,8 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   Listas lista = getIt<Listas>();
-  
-  void _onSelect(ContatosModel dados) {
+
+  void _onSelect(DadosModel dados) {
     getIt<NavigationService>().pushNamed(LocalRoutes.DADOS, args: dados);
   }
 

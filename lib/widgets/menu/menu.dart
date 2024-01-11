@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../configs/routes/local_routes.dart';
-import '../cs_icon.dart';
+import '../cs_list_tile.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -41,7 +41,7 @@ class _MenuState extends State<Menu> {
                     backgroundColor: Colors.transparent,
                     child: ClipOval(
                       child: Image.network(
-                        'https://cdn-icons-png.flaticon.com/512/1/1247.png',
+                        'https://pbs.twimg.com/media/EwPGOnfW8AE1DpQ.jpg',
                         fit: BoxFit.fill,
                         width: double.infinity,
                         height: double.infinity,
@@ -79,50 +79,24 @@ class _MenuState extends State<Menu> {
               ),
             ),
           ),
-          ListTile(
-            splashColor: Colors.grey[200],
-            leading: const CsIcon.icon(
-              icon: Icons.home,
-              color: Colors.blueGrey,
-            ),
-            title: const Text(
-              'Home',
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.w400,
-                fontSize: 18,
-                shadows: [
-                  Shadow(
-                    blurRadius: 2,
-                    color: Color(0x5DA7A7A7),
-                    offset: Offset(1, 1),
-                  ),
-                ],
-              ),
-            ),
-            onTap: () => Navigator.pushNamed(context, LocalRoutes.HOME),
+          CsListTile(
+            title: 'Times e Seleções',
+            icon: Icons.sports,
+            onTap: () => Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO),
           ),
-          ListTile(
-            splashColor: Colors.grey[200],
-            leading: const CsIcon.icon(
-              icon: Icons.history,
-              color: Colors.blueGrey,
-            ),
-            title: const Text(
-              'Histórico',
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontWeight: FontWeight.w400,
-                fontSize: 18,
-                shadows: [
-                  Shadow(
-                    blurRadius: 2,
-                    color: Color(0x5DA7A7A7),
-                    offset: Offset(1, 1),
-                  ),
-                ],
-              ),
-            ),
+          CsListTile(
+            title: 'família',
+            icon: Icons.family_restroom_rounded,
+            onTap: () => Navigator.pushNamed(context, LocalRoutes.FAMILIA),
+          ),
+          CsListTile(
+            title: 'Fruta favorita',
+            icon: Icons.apple,
+            onTap: () => Navigator.pushNamed(context, LocalRoutes.FRUTA_FAVORITA),
+          ),
+          CsListTile(
+            title: 'Histórico',
+            icon: Icons.history,
             onTap: () => Navigator.pushNamed(context, LocalRoutes.HISTORICO),
           ),
         ],

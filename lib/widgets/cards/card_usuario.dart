@@ -16,9 +16,9 @@ class CardUsuario extends StatelessWidget {
     super.key,
   });
 
-  final ContatosModel contato;
+  final DadosModel contato;
 
-  final void Function(ContatosModel) onSelect;
+  final void Function(DadosModel) onSelect;
   final Future<Object?>? future;
   final bool hasSelected;
   final Color? textColor;
