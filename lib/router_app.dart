@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:routes/views/historico/historico_view.dart';
 
 import 'configs/routes/local_routes.dart';
+import 'models/contatos_model.dart';
+import 'views/dados/dados_view.dart';
 import 'views/home/home_view.dart';
 import 'widgets/cs_app_bar.dart';
 import 'widgets/cs_elevated_button.dart';
@@ -21,6 +23,14 @@ class RouterApp {
       case LocalRoutes.HISTORICO:
         return _PageBuilder(
           child: const HistoricoView(),
+          settings: settings,
+        );
+
+      case LocalRoutes.DADOS:
+        final dados = settings.arguments as ContatosModel;
+
+        return _PageBuilder(
+          child: DadosView(dados: dados),
           settings: settings,
         );
 

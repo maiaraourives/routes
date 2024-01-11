@@ -12,7 +12,7 @@ class RouteObserverr extends NavigatorObserver {
   }
 
   @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute, {String? contatoNome}) {
     super.didPush(route, previousRoute);
     routeName = route.settings.name ?? 'Rota desconhecida';
 
@@ -20,6 +20,8 @@ class RouteObserverr extends NavigatorObserver {
       routeName = 'Tela inicial';
     } else if (routeName == '/historico') {
       routeName = 'Histórico de rotas';
+    } else if (routeName == '/dados') {
+      routeName = 'Dados';
     } else {
       routeName;
     }
@@ -36,6 +38,8 @@ class RouteObserverr extends NavigatorObserver {
       routeName = 'Tela inicial';
     } else if (routeName == '/historico') {
       routeName = 'Histórico de rotas';
+    } else if (routeName == '/dados') {
+      routeName = 'Dados';
     } else {
       routeName;
     }
@@ -52,6 +56,8 @@ class RouteObserverr extends NavigatorObserver {
       routeName = 'Tela inicial';
     } else if (routeName == '/historico') {
       routeName = 'Histórico de rotas';
+    } else if (routeName == '/dados') {
+      routeName = 'Dados';
     } else {
       routeName;
     }
@@ -68,6 +74,8 @@ class RouteObserverr extends NavigatorObserver {
       routeName = 'Tela inicial';
     } else if (routeName == '/historico') {
       routeName = 'Histórico de rotas';
+    } else if (routeName == '/dados') {
+      routeName = 'Dados';
     } else {
       routeName;
     }

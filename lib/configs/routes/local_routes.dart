@@ -6,4 +6,6 @@ class LocalRoutes {
   static const HOME = '/home';
 
   static const HISTORICO = '/historico';
+
+  static const DADOS = '/dados';
 }

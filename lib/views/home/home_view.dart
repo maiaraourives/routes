@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:routes/configs/routes/local_routes.dart';
+import '../../models/contatos_model.dart';
+import '../../services/navigation_service.dart';
 import '../../services/service_locator.dart';
 import '../../stores/list_contatos.dart';
 import '../../widgets/cards/card_usuario.dart';
@@ -14,6 +17,10 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   Listas lista = getIt<Listas>();
+  
+  void _onSelect(ContatosModel dados) {
+    getIt<NavigationService>().pushNamed(LocalRoutes.DADOS, args: dados);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +30,12 @@ class _HomeViewState extends State<HomeView> {
         title: 'Home',
       ),
       body: ListView.builder(
-        itemCount: lista.listaContatoss.length,
+        itemCount: lista.listaContatos.length,
         itemBuilder: (context, index) {
           return CardUsuario(
-            key: ValueKey(lista.listaContatoss[index].nome),
-            nome: lista.listaContatoss[index].nome,
-            numero: lista.listaContatoss[index].numero,
-            perfil: lista.listaContatoss[index].perfil,
+            key: ValueKey(lista.listaContatos[index].nome),
+            contato: lista.listaContatos[index],
+            onSelect: _onSelect,
           );
         },
       ),

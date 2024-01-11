@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 
 class NavigationService {
   final navigatorKey = GlobalKey<NavigatorState>();
-  final RouteObserver<PageRoute<dynamic>> routeObserver =
-      RouteObserver<PageRoute<dynamic>>();
+  final RouteObserver<PageRoute<dynamic>> routeObserver = RouteObserver<PageRoute<dynamic>>();
 
   Future<dynamic> pushNamed(
     String route, {

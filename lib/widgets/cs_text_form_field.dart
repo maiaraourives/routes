@@ -41,7 +41,7 @@ class CsTextFormField<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return TextFormField(
-      cursorColor: Colors.black,
+      cursorColor: Colors.white,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         fillColor: theme.primaryColor,

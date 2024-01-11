@@ -4,24 +4,23 @@ library criando_package;
 
 import 'package:flutter/material.dart';
 
+import '../../models/contatos_model.dart';
+
 class CardUsuario extends StatelessWidget {
   const CardUsuario({
-    required this.numero,
-    required this.nome,
-    required this.perfil,
-    this.textColor,
-    this.onSelect,
+    required this.onSelect,
+    required this.contato,
     this.future,
     this.hasSelected = false,
+    this.textColor,
     super.key,
   });
 
-  final Function()? onSelect;
+  final ContatosModel contato;
+
+  final void Function(ContatosModel) onSelect;
   final Future<Object?>? future;
   final bool hasSelected;
-  final String nome;
-  final String numero;
-  final String perfil;
   final Color? textColor;
 
   @override
@@ -34,7 +33,7 @@ class CardUsuario extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       color: Colors.white,
       child: InkWell(
-        onTap: onSelect,
+        onTap: () => onSelect(contato),
         borderRadius: BorderRadius.circular(15),
         splashColor: theme.colorScheme.onPrimary,
         focusColor: theme.colorScheme.onPrimary,
@@ -55,7 +54,7 @@ class CardUsuario extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     child: ClipOval(
                       child: Image.asset(
-                        perfil,
+                        contato.perfil,
                         fit: BoxFit.fill,
                         width: double.infinity,
                         height: double.infinity,
@@ -69,7 +68,7 @@ class CardUsuario extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          nome,
+                          contato.nome,
                           style: TextStyle(
                             color: Colors.grey[600] ?? textColor,
                             fontWeight: FontWeight.w600,
@@ -78,7 +77,7 @@ class CardUsuario extends StatelessWidget {
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          numero,
+                          contato.numero,
                           style: TextStyle(
                             color: Colors.grey[600] ?? textColor,
                             fontSize: 15,

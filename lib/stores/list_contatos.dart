@@ -58,5 +58,5 @@ class Listas {
     ),
   ];
 
-  List<ContatosModel> get listaContatoss => _listaContatos;
+  List<ContatosModel> get listaContatos => _listaContatos;
 }
