@@ -56,8 +56,9 @@ class _TemIrmaoViewState extends State<TemIrmaoView> {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
+            removeRoute('Família');
             removeRoute('Tem irmão');
+            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
           },
         ),
       ),

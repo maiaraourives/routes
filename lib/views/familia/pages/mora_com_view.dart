@@ -55,8 +55,9 @@ class _MoraComViewState extends State<MoraComView> {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
             removeRoute('Mora com');
+            removeRoute('Família');
+            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
           },
         ),
       ),

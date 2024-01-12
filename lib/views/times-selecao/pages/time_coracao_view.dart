@@ -40,8 +40,9 @@ class TimeCoracaoViewState extends State {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
+            removeRoute('Seleção do coração');
             removeRoute('Times do coração');
+            Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
           },
         ),
       ),

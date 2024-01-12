@@ -38,8 +38,9 @@ class _TimesSelecaoViewState extends State<TimesSelecaoView> {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            getIt<NavigationService>().pop();
+            getIt<NavigationService>().pushNamed(LocalRoutes.HOME);
             removeRoute('Times e seleção');
+            removeRoute('Tela inicial');
             removeRoute('Inicialização');
           },
         ),

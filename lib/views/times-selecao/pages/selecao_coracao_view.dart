@@ -40,8 +40,9 @@ class SelecaoCoracaoViewState extends State {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
             removeRoute('Seleção do coração');
+            removeRoute('Times e seleção');
+            Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
           },
         ),
       ),
@@ -73,7 +74,7 @@ class SelecaoCoracaoViewState extends State {
                                 }
 
                                 route = LocalRoutes.mapRouteName(route);
-                                
+
                                 if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
                                   getIt<NavigationService>().pushNamed(route);
                                 }

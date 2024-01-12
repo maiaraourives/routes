@@ -72,8 +72,10 @@ class _FrutaFavoritaViewState extends State<FrutaFavoritaView> {
                                 }
 
                                 route = LocalRoutes.mapRouteName(route);
-
-                                getIt<NavigationService>().pushNamed(route);
+                                
+                                if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
+                                  getIt<NavigationService>().pushNamed(route);
+                                }
                               },
                               child: Row(
                                 children: [

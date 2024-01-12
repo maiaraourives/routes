@@ -48,8 +48,9 @@ class _FilhoViewState extends State<FilhoView> {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
             removeRoute('Filho');
+            removeRoute('Família');
+            Navigator.pushNamed(context, LocalRoutes.FAMILIA);
           },
         ),
       ),
