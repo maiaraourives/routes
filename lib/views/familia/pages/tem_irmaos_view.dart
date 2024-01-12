@@ -90,7 +90,11 @@ class _TemIrmaoViewState extends State<TemIrmaoView> {
 
                                 route = LocalRoutes.mapRouteName(route);
 
-                                getIt<NavigationService>().pushNamed(route);
+                                Navigator.of(context).popUntil(ModalRoute.withName(route));
+
+                                if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
+                                  getIt<NavigationService>().pushNamed(route);
+                                }
                               },
                               child: Row(
                                 children: [

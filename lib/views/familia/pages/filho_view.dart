@@ -79,7 +79,11 @@ class _FilhoViewState extends State<FilhoView> {
                                   routeObserver.removeRoute(removedRoute);
                                 });
                               }
+                              
                               route = LocalRoutes.mapRouteName(route);
+
+                              Navigator.of(context).popUntil(ModalRoute.withName(route));
+
                               if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
                                 getIt<NavigationService>().pushNamed(route);
                               }
