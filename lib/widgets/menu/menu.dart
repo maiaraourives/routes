@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../configs/routes/local_routes.dart';
+import '../../services/service_locator.dart';
+import '../../utils/routes.dart';
 import '../cs_list_tile.dart';
 
 class Menu extends StatefulWidget {
@@ -11,6 +13,16 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  RouteObserverr routeObserver = getIt<RouteObserverr>();
+
+  void removeRoute(routeName) {
+    setState(() {
+      if (routeName.isNotEmpty) {
+        routeObserver.removeRoute(routeName);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -82,17 +94,26 @@ class _MenuState extends State<Menu> {
           CsListTile(
             title: 'Times e Seleções',
             icon: Icons.sports,
-            onTap: () => Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO),
+            onTap: () {
+              Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
+              removeRoute('Inicialização');
+            },
           ),
           CsListTile(
             title: 'Família',
             icon: Icons.family_restroom_rounded,
-            onTap: () => Navigator.pushNamed(context, LocalRoutes.FAMILIA),
+            onTap: () {
+              Navigator.pushNamed(context, LocalRoutes.FAMILIA);
+              removeRoute('Inicialização');
+            },
           ),
           CsListTile(
             title: 'Fruta favorita',
             icon: Icons.apple,
-            onTap: () => Navigator.pushNamed(context, LocalRoutes.FRUTA_FAVORITA),
+            onTap: () {
+              Navigator.pushNamed(context, LocalRoutes.FRUTA_FAVORITA);
+              removeRoute('Inicialização');
+            },
           ),
           // CsListTile(
           //   title: 'Histórico',
