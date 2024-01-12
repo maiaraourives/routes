@@ -94,11 +94,11 @@ class _MenuState extends State<Menu> {
             icon: Icons.apple,
             onTap: () => Navigator.pushNamed(context, LocalRoutes.FRUTA_FAVORITA),
           ),
-          CsListTile(
-            title: 'Histórico',
-            icon: Icons.history,
-            onTap: () => Navigator.pushNamed(context, LocalRoutes.HISTORICO),
-          ),
+          // CsListTile(
+          //   title: 'Histórico',
+          //   icon: Icons.history,
+          //   onTap: () => Navigator.pushNamed(context, LocalRoutes.HISTORICO),
+          // ),
         ],
       ),
     );

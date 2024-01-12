@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:routes/configs/routes/local_routes.dart';
+// ignore_for_file: avoid_function_literals_in_foreach_calls
 
+import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
+import '../../configs/routes/local_routes.dart';
 import '../../models/contatos_model.dart';
 import '../../services/navigation_service.dart';
 import '../../services/service_locator.dart';
@@ -42,11 +45,65 @@ class _DadosViewState extends State<DadosView> {
           height: 890,
           child: Stack(
             children: [
+              Container(
+                height: 70,
+                color: Colors.white,
+                child: Observer(
+                  builder: (_) {
+                    return ListView(
+                      padding: const EdgeInsets.all(5).copyWith(top: 25, left: 10),
+                      scrollDirection: Axis.horizontal,
+                      children: routeObserver.routeHistory.map(
+                        (route) {
+                          return Observer(
+                            builder: (context) {
+                              return Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: InkWell(
+                                  onTap: () {
+                                    final currentRouteIndex = routeObserver.routeHistory.indexOf(route);
+
+                                    if (currentRouteIndex < routeObserver.routeHistory.length - 1) {
+                                      final routesToRemove = routeObserver.routeHistory.sublist(currentRouteIndex);
+                                      routesToRemove.forEach((removedRoute) {
+                                        routeObserver.removeRoute(removedRoute);
+                                      });
+                                    }
+
+                                    getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        route,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.blueGrey,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      const CsIcon.icon(
+                                        icon: Icons.arrow_forward_ios_outlined,
+                                        size: 15,
+                                        color: Colors.blueGrey,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ).toList(),
+                    );
+                  },
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50),
+                    padding: const EdgeInsets.only(top: 100),
                     child: CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 79,
@@ -63,7 +120,7 @@ class _DadosViewState extends State<DadosView> {
                 ],
               ),
               Positioned(
-                top: 220,
+                top: 280,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   width: MediaQuery.of(context).size.width,
@@ -200,12 +257,14 @@ class _DadosViewState extends State<DadosView> {
                 ),
               ),
               Positioned(
-                top: 40,
+                top: 80,
                 left: 10,
                 child: CsElevatedButtonCircular(
                   onPressed: () {
                     getIt<NavigationService>().pushNamed(LocalRoutes.HOME);
-                    // removeRoute('Dados');
+                    removeRoute('Dados');
+                    removeRoute('Tela inicial');
+                    removeRoute('Inicialização');
                   },
                   icon: CsIcon.icon(icon: Icons.arrow_back, color: theme.primaryColor, size: 30),
                 ),

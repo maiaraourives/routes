@@ -1,7 +1,15 @@
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:pie_chart/pie_chart.dart';
 
+import '../../../services/navigation_service.dart';
+import '../../../services/service_locator.dart';
+import '../../../utils/routes.dart';
 import '../../../widgets/cs_app_bar.dart';
+import '../../../widgets/cs_icon.dart';
+import '../../../widgets/cs_icon_button.dart';
 
 class ViagemViewView extends StatefulWidget {
   const ViagemViewView({super.key});
@@ -11,6 +19,16 @@ class ViagemViewView extends StatefulWidget {
 }
 
 class _ViagemViewViewState extends State<ViagemViewView> {
+  RouteObserverr routeObserver = getIt<RouteObserverr>();
+
+  void removeRoute(routeName) {
+    setState(() {
+      if (routeName.isNotEmpty) {
+        routeObserver.removeRoute(routeName);
+      }
+    });
+  }
+
   Map<String, double> dataMap = {
     'Angra dos Reis - SP': 1,
     'Milão - Itália': 1,
@@ -55,12 +73,70 @@ class _ViagemViewViewState extends State<ViagemViewView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CsAppBar(
+      appBar: CsAppBar(
         title: 'Viagem favorita com a família',
+        leading: CsIconButton(
+          icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            getIt<NavigationService>().pop();
+            removeRoute('Viagem favorita');
+          },
+        ),
       ),
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          SizedBox(
+            height: 50,
+            child: Observer(
+              builder: (_) {
+                return ListView(
+                  padding: const EdgeInsets.all(5),
+                  scrollDirection: Axis.horizontal,
+                  children: routeObserver.routeHistory.map(
+                    (route) {
+                      return Observer(builder: (context) {
+                        return Padding(
+                          padding: const EdgeInsets.all(5),
+                          child: InkWell(
+                            onTap: () {
+                              final currentRouteIndex = routeObserver.routeHistory.indexOf(route);
+
+                              if (currentRouteIndex < routeObserver.routeHistory.length - 1) {
+                                final routesToRemove = routeObserver.routeHistory.sublist(currentRouteIndex);
+                                routesToRemove.forEach((removedRoute) {
+                                  routeObserver.removeRoute(removedRoute);
+                                });
+                              }
+
+                              getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                            },
+                            child: Row(
+                              children: [
+                                Text(
+                                  route,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.blueGrey,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                                const CsIcon.icon(
+                                  icon: Icons.arrow_forward_ios_outlined,
+                                  size: 15,
+                                  color: Colors.blueGrey,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      });
+                    },
+                  ).toList(),
+                );
+              },
+            ),
+          ),
           Flexible(
             child: Container(
               margin: const EdgeInsets.all(15),

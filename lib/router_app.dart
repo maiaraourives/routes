@@ -130,25 +130,21 @@ class _RotaInexistenteView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: const CsAppBar(title: 'Ops! Ocorreu um erro'),
       body: Center(
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              child: NenhumaInformacao(
-                Image.network('https://thecolor.blog/wp-content/uploads/2021/10/GIF-1.gif', width: double.maxFinite, height: 400),
-                message: 'Desculpe, a página que você está procurando não foi encontrada. Relate o seu problema abrindo um chamado no botão abaixo!',
-                actions: [
-                  CsElevatedButton(
-                    height: 35,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    label: 'Abrir chamado',
-                    onPressed: () {},
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: NenhumaInformacao(
+            Image.network('https://thecolor.blog/wp-content/uploads/2021/10/GIF-1.gif', width: double.maxFinite, height: 400),
+            message: 'Desculpe, a página que você está procurando não foi encontrada. Relate o seu problema abrindo um chamado no botão abaixo!',
+            actions: [
+              CsElevatedButton(
+                height: 35,
+                width: MediaQuery.of(context).size.width * 0.8,
+                label: 'Abrir chamado',
+                onPressed: () {},
               ),
-            ),
-            const CsAppBar(title: 'Ops! Ocorreu um erro'),
-          ],
+            ],
+          ),
         ),
       ),
     );

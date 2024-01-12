@@ -20,6 +20,8 @@ class RouteObserverr extends NavigatorObserver {
 
   String mapRouteName(String inputRouteName) {
     switch (inputRouteName) {
+      case '/':
+        return 'Inicialização';
       case LocalRoutes.HOME:
         return 'Tela inicial';
       case LocalRoutes.HISTORICO:

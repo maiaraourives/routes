@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:routes/configs/routes/local_routes.dart';
 import '../../models/contatos_model.dart';
 import '../../services/navigation_service.dart';
@@ -37,53 +36,30 @@ class _HomeViewState extends State<HomeView> {
       ),
       body: Column(
         children: [
-          SizedBox(
+          Container(
+            padding: const EdgeInsets.only(left: 10),
             height: 50,
-            child: Observer(
-              builder: (_) {
-                return ListView(
-                  padding: const EdgeInsets.all(5),
-                  scrollDirection: Axis.horizontal,
-                  children: routeObserver.routeHistory.map(
-                    (route) {
-                      return Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: InkWell(
-                          onTap: () {
-                            final currentRouteIndex = routeObserver.routeHistory.indexOf(route);
-
-                            if (currentRouteIndex < routeObserver.routeHistory.length - 1) {
-                              final routesToRemove = routeObserver.routeHistory.sublist(currentRouteIndex);
-                              routesToRemove.forEach((removedRoute) {
-                                routeObserver.removeRoute(removedRoute);
-                              });
-                            }
-
-                            getIt<NavigationService>().pushNamed(route);
-                          },
-                          child: Row(
-                            children: [
-                              Text(
-                                route,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.blueGrey,
-                                  fontSize: 15,
-                                ),
-                              ),
-                              const CsIcon.icon(
-                                icon: Icons.arrow_forward_ios_outlined,
-                                size: 15,
-                                color: Colors.blueGrey,
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ).toList(),
-                );
+            child: InkWell(
+              onTap: () {
+                // getIt<NavigationService>().pushNamed(LocalRoutes.HOME);
               },
+              child: const Row(
+                children: [
+                  Text(
+                    'Tela inicial',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.blueGrey,
+                      fontSize: 15,
+                    ),
+                  ),
+                  CsIcon.icon(
+                    icon: Icons.arrow_forward_ios_outlined,
+                    size: 15,
+                    color: Colors.blueGrey,
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
