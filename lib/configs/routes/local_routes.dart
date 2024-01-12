@@ -28,7 +28,6 @@ class LocalRoutes {
   static const FRUTA_FAVORITA = '/fruta-favorita';
 
   static String mapRouteNameCustom(String inputRouteName) {
-    // Adicione mapeamentos personalizados para todas as rotas, se necessário
     switch (inputRouteName) {
       case '/':
         return 'Inicialização';
@@ -62,10 +61,9 @@ class LocalRoutes {
   }
 
   static String mapRouteName(String inputRouteName) {
-    // Adicione mapeamentos personalizados para todas as rotas, se necessário
     switch (inputRouteName) {
-      case '/':
-        return 'Inicialização';
+      case 'Inicialização':
+        return '/';
       case 'Tela inicial':
         return HOME;
       case 'Histórico de rotas':
