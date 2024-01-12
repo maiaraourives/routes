@@ -7,8 +7,6 @@ import '../configs/routes/local_routes.dart';
 class RouteObserverr extends NavigatorObserver {
   List<String> routeHistory = [];
 
-  String routeName = '';
-
   void removeRoute(String routeName) {
     routeHistory.removeWhere((route) => route.contains(routeName));
   }
@@ -17,37 +15,18 @@ class RouteObserverr extends NavigatorObserver {
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute, {String? contatoNome}) {
     super.didPush(route, previousRoute);
 
-    routeName = route.settings.name ?? 'Rota desconhecida';
+    final routePath = route.settings.name ?? 'Rota desconhecida';
 
-    routeName = LocalRoutes.mapRouteNameCustom(routeName);
+    final routeName = LocalRoutes.mapRouteNameCustom(routePath);
 
     routeHistory.add(routeName);
   }
 
-  // @override
-  // void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-  //   super.didPop(route, previousRoute);
+  @override
+  void didPop(Route route, Route? previousRoute) {
+    final routeName = LocalRoutes.mapRouteNameCustom(route.settings.name!);
+    routeHistory.removeWhere((r) => r.contains(routeName));
 
-  //   routeName = route.settings.name ?? 'Rota desconhecida';
-
-  //   routeName = LocalRoutes.mapRouteNameCustom(routeName);
-  // }
-
-  // @override
-  // void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-  //   super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
-
-  //   routeName = newRoute?.settings.name ?? 'Rota desconhecida';
-
-  //   routeName = LocalRoutes.mapRouteNameCustom(routeName);
-  // }
-
-  // @override
-  // void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-  //   super.didRemove(route, previousRoute);
-
-  //   routeName = route.settings.name ?? 'Rota desconhecida';
-
-  //   routeName = LocalRoutes.mapRouteNameCustom(routeName);
-  // }
+    super.didPop(route, previousRoute);
+  }
 }
