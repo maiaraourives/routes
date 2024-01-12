@@ -7,7 +7,12 @@ import '../configs/routes/local_routes.dart';
 
 class RouteObserverr extends NavigatorObserver {
   List<String> routeHistory = [];
+
   String routeName = '';
+
+  String action = '';
+
+  String dateFormat = DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now());
 
   void removeRoute(String routeName) {
     routeHistory.removeWhere((route) => route.contains(routeName));
@@ -34,7 +39,7 @@ class RouteObserverr extends NavigatorObserver {
       case LocalRoutes.MORA_COM:
         return 'Mora com';
       case LocalRoutes.VIAGEM:
-        return 'Viagem favorita com a família';
+        return 'Viagem favorita';
       case LocalRoutes.TEM_IRMAO:
         return 'Tem irmão';
       case LocalRoutes.FRUTA_FAVORITA:
@@ -52,7 +57,11 @@ class RouteObserverr extends NavigatorObserver {
 
     routeName = mapRouteName(routeName);
 
-    routeHistory.add('Rota empurrada: $routeName, acessado ${DateFormat('yyyy-MM-dd – kk:mm').format(DateTime.now())}');
+    // action = 'Rota empurrada';
+
+    // routeHistory.add('$action: $routeName, acessado $dateFormat');
+
+    routeHistory.add(routeName);
   }
 
   @override
@@ -63,7 +72,11 @@ class RouteObserverr extends NavigatorObserver {
 
     routeName = mapRouteName(routeName);
 
-    routeHistory.add('Rota retirada: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
+    // action = 'Rota retirada';
+
+    // routeHistory.add('$action: $routeName, acessado $dateFormat');
+
+    // routeHistory.add(routeName);
   }
 
   @override
@@ -74,7 +87,11 @@ class RouteObserverr extends NavigatorObserver {
 
     routeName = mapRouteName(routeName);
 
-    routeHistory.add('Rota substituída: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
+    // action = 'Rota substituída';
+
+    // routeHistory.add('$action: $routeName, acessado $dateFormat');
+
+    // routeHistory.add(routeName);
   }
 
   @override
@@ -85,6 +102,10 @@ class RouteObserverr extends NavigatorObserver {
 
     routeName = mapRouteName(routeName);
 
-    routeHistory.add('Rota removida: $routeName, acessado ${DateFormat('dd/MM/yyyy – kk:mm').format(DateTime.now())}');
+    // action = 'Rota removida';
+
+    // routeHistory.add('$action: $routeName, acessado $dateFormat');
+
+    // routeHistory.add(routeName);
   }
 }

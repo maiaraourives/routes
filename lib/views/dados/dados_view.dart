@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:routes/widgets/cs_app_bar.dart';
+import 'package:routes/configs/routes/local_routes.dart';
 
 import '../../models/contatos_model.dart';
+import '../../services/navigation_service.dart';
+import '../../services/service_locator.dart';
+import '../../utils/routes.dart';
+import '../../widgets/cs_elevated_button_circular.dart';
 import '../../widgets/cs_icon.dart';
 
 class DadosView extends StatefulWidget {
@@ -14,25 +18,35 @@ class DadosView extends StatefulWidget {
 }
 
 class _DadosViewState extends State<DadosView> {
+  String routeName = '';
+  RouteObserverr routeObserver = getIt<RouteObserverr>();
+
+  void removeRoute(routeName) {
+    setState(() {
+      if (routeName.isNotEmpty) {
+        routeObserver.removeRoute(routeName);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: const CsAppBar(title: 'Dados'),
       backgroundColor: theme.primaryColor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         primary: true,
         child: SizedBox(
           width: double.maxFinite,
-          height: 870,
+          height: 890,
           child: Stack(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.only(top: 50),
                     child: CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 79,
@@ -49,7 +63,7 @@ class _DadosViewState extends State<DadosView> {
                 ],
               ),
               Positioned(
-                top: 190,
+                top: 220,
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   width: MediaQuery.of(context).size.width,
@@ -177,12 +191,23 @@ class _DadosViewState extends State<DadosView> {
                           style: const TextStyle(color: Color.fromRGBO(158, 158, 158, 1), fontSize: 14),
                         ),
                         leading: const CsIcon.icon(
-                          icon: Icons.local_taxi_sharp,
+                          icon: Icons.flight_outlined,
                           size: 30,
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+              Positioned(
+                top: 40,
+                left: 10,
+                child: CsElevatedButtonCircular(
+                  onPressed: () {
+                    getIt<NavigationService>().pushNamed(LocalRoutes.HOME);
+                    // removeRoute('Dados');
+                  },
+                  icon: CsIcon.icon(icon: Icons.arrow_back, color: theme.primaryColor, size: 30),
                 ),
               ),
             ],

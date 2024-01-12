@@ -54,7 +54,7 @@ class _HistoricoViewState extends State<HistoricoView> {
                 return ListTile(
                   title: Text(
                     routeObserver.routeHistory[index],
-                    style: const TextStyle(color: Colors.blue),
+                    style: const TextStyle(color: Colors.blueGrey),
                   ),
                 );
               },

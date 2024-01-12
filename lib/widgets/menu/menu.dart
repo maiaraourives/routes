@@ -22,7 +22,7 @@ class _MenuState extends State<Menu> {
             height: MediaQuery.of(context).size.height * 0.16,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: theme.appBarTheme.backgroundColor,
+              color: theme.primaryColor,
               boxShadow: const [
                 BoxShadow(
                   color: Color(0x23000000),
@@ -38,10 +38,10 @@ class _MenuState extends State<Menu> {
                   // Foto do usuário
                   CircleAvatar(
                     radius: 30,
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: Colors.white,
                     child: ClipOval(
                       child: Image.network(
-                        'https://pbs.twimg.com/media/EwPGOnfW8AE1DpQ.jpg',
+                        'https://img.freepik.com/fotos-premium/ilustracao-de-linda-garota_1022212-260.jpg?size=626&ext=jpg&ga=GA1.1.1546980028.1704240000&semt=ais',
                         fit: BoxFit.fill,
                         width: double.infinity,
                         height: double.infinity,
@@ -57,7 +57,7 @@ class _MenuState extends State<Menu> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Luan Di Paulo',
+                          'Luana Correa',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
@@ -85,7 +85,7 @@ class _MenuState extends State<Menu> {
             onTap: () => Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO),
           ),
           CsListTile(
-            title: 'família',
+            title: 'Família',
             icon: Icons.family_restroom_rounded,
             onTap: () => Navigator.pushNamed(context, LocalRoutes.FAMILIA),
           ),

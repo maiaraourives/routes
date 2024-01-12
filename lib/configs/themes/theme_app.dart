@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class ThemeApp {
   static final ligthTheme = ThemeData(
-    primaryColor: const Color(0xFFE71B00),
-    splashColor: const Color(0xFFE71B00),
+    primaryColor: const Color(0xFFEB9AC0),
+    splashColor: Colors.grey[50],
     scaffoldBackgroundColor: Colors.white,
     primaryColorLight: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Color(0xFFE71B00),
+      backgroundColor: Color(0xFFEB9AC0),
       iconTheme: IconThemeData(
         color: Colors.white,
         size: 24,
@@ -22,7 +22,7 @@ class ThemeApp {
       onPrimary: Colors.grey[200],
       onSecondary: Colors.grey[50],
       primaryContainer: Colors.grey[600],
-      secondary: const Color(0xFFE71B00),
+      secondary: const Color(0xFFEB9AC0),
       brightness: Brightness.light,
       surface: Colors.white,
       onSurface: Colors.grey,
@@ -45,8 +45,8 @@ class ThemeApp {
     ),
     textSelectionTheme: TextSelectionThemeData(
       cursorColor: Colors.grey[600],
-      selectionColor: const Color(0xFFE71B00),
-      selectionHandleColor: const Color(0xFFE71B00),
+      selectionColor: const Color(0xFFEB9AC0),
+      selectionHandleColor: const Color(0xFFEB9AC0),
     ),
     inputDecorationTheme: InputDecorationTheme(
       border: textFieldBorder,
