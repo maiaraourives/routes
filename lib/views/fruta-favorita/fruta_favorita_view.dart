@@ -4,6 +4,7 @@ import 'package:animated_pie_chart/animated_pie_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../configs/routes/local_routes.dart';
 import '../../services/navigation_service.dart';
 import '../../services/service_locator.dart';
 import '../../utils/routes.dart';
@@ -70,7 +71,9 @@ class _FrutaFavoritaViewState extends State<FrutaFavoritaView> {
                                   });
                                 }
 
-                                getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                                route = LocalRoutes.mapRouteName(route);
+
+                                getIt<NavigationService>().pushNamed(route);
                               },
                               child: Row(
                                 children: [

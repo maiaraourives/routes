@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../configs/routes/local_routes.dart';
 import '../../../services/navigation_service.dart';
 import '../../../services/service_locator.dart';
 import '../../../utils/routes.dart';
@@ -39,7 +40,7 @@ class TimeCoracaoViewState extends State {
         leading: CsIconButton(
           icon: const CsIcon.icon(icon: Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            getIt<NavigationService>().pop();
+            Navigator.pushNamed(context, LocalRoutes.TIMES_SELECAO);
             removeRoute('Times do coração');
           },
         ),
@@ -70,7 +71,11 @@ class TimeCoracaoViewState extends State {
                                 });
                               }
 
-                              getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                              route = LocalRoutes.mapRouteName(route);
+
+                              if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
+                                getIt<NavigationService>().pushNamed(route);
+                              }
                             },
                             child: Row(
                               children: [

@@ -24,7 +24,16 @@ class _HomeViewState extends State<HomeView> {
   RouteObserverr routeObserver = getIt<RouteObserverr>();
 
   void _onSelect(DadosModel dados) {
+    removeRoute('Inicialização');
     getIt<NavigationService>().pushNamed(LocalRoutes.DADOS, args: dados);
+  }
+
+  void removeRoute(routeName) {
+    setState(() {
+      if (routeName.isNotEmpty) {
+        routeObserver.removeRoute(routeName);
+      }
+    });
   }
 
   @override

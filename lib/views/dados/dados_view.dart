@@ -70,7 +70,9 @@ class _DadosViewState extends State<DadosView> {
                                       });
                                     }
 
-                                    getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                                    route = LocalRoutes.mapRouteName(route);
+
+                                    getIt<NavigationService>().pushNamed(route);
                                   },
                                   child: Row(
                                     children: [

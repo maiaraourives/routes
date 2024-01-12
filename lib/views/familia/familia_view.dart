@@ -70,7 +70,10 @@ class _FamiliaViewState extends State<FamiliaView> {
                                 });
                               }
 
-                              getIt<NavigationService>().pushNamed(routeObserver.mapRouteName(route));
+                              route = LocalRoutes.mapRouteName(route);
+                              if (currentRouteIndex != routeObserver.routeHistory.length - 1) {
+                                getIt<NavigationService>().pushNamed(route);
+                              }
                             },
                             child: Row(
                               children: [
